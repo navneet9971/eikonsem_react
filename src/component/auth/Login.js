@@ -1,9 +1,14 @@
 import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import "./auth.scss";
 
 function Login() {
   const [user, setUser] = useState()
+  const nevigate = useNavigate()
+
+  const submitData = (data) =>{
+     nevigate('/signup')
+  }
 
   const onSubmitData = (e) =>{console.log("first",e)
     if(e){
@@ -24,7 +29,7 @@ function Login() {
           </div>
           <p>Don't you have account?</p>
 
-          <input type="submit" value="Sing up" id="singup" />
+          <button onClick={submitData} id="singup" >Sing up</button>
           <h3>WELCOME</h3>
           <input
             type="email"
